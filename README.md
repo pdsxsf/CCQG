@@ -117,7 +117,6 @@ python ner.py \
     --train_batch_size 64 \
     --eval_batch_size 64 \
     --num_train_epochs 50 \
-    --do_lower_case \
     --logging_steps 200 \
     --need_birnn True \
     --rnn_dim 256 \
@@ -139,14 +138,13 @@ CUDA_VISIBLE_DEVICES=6 python ner.py \
     --do_train False \
     --do_eval False \
     --do_test True \
-    --max_seq_length 128 \
+    --max_seq_length 256 \
     --train_file ./data/ccqg/train.txt \
     --eval_file ./data/ccqg/dev.txt \
     --test_file ./data/ccqg/test.txt \
-    --train_batch_size 32 \
-    --eval_batch_size 32 \
-    --num_train_epochs 100 \
-    --do_lower_case \
+    --train_batch_size 64 \
+    --eval_batch_size 64 \
+    --num_train_epochs 50 \
     --logging_steps 200 \
     --need_birnn True \
     --rnn_dim 256 \
@@ -167,12 +165,12 @@ bash only_test.sh
 | `--max_seq_length` | 256 | Maximum input sequence length |
 | `--train_batch_size` | 8 | Training batch size |
 | `--learning_rate` | 3e-5 | Initial learning rate (AdamW) |
-| `--num_train_epochs` | 10 | Number of training epochs |
+| `--num_train_epochs` | 50 | Number of training epochs |
 | `--need_birnn` | False | Whether to include the BiLSTM layer |
-| `--rnn_dim` | 128 | BiLSTM hidden dimension (per direction) |
+| `--rnn_dim` | 256 | BiLSTM hidden dimension (per direction) |
 | `--lbd` | 0.2 | Weight of the auxiliary task loss |
 | `--warmup_steps` | 0 | Number of linear warmup steps |
-| `--seed` | 2019 | Random seed (parsed but not used; see [Reproducibility](#reproducibility)) |
+| `--seed` | 1024 | Random seed (parsed but not used; see [Reproducibility](#reproducibility)) |
 
 ### Monitoring Training
 
@@ -200,7 +198,7 @@ This section provides detailed instructions and notes for reproducing the experi
 
 ### Random Seed Configuration
 
-> **Important**: The `set_seed()` function defined in `ner.py` is **never called** during execution. The `--seed` argument (default `2019`) is parsed but has **no effect** on the random state.
+> **Important**: The `set_seed()` function defined in `ner.py` is **never called** during execution. The `--seed` argument (default `1024`) is parsed but has **no effect** on the random state.
 
 The only seed that is actually applied is a **hardcoded seed** (`1024`) at the beginning of `main()`, before device initialization:
 
