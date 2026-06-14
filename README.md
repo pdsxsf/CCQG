@@ -1,6 +1,6 @@
-# CCQG: Multi-Task BERT-BiLSTM-CRF for Chinese NER
+# CCQG: Chinese Cloze Question Generation for Educational Assessments
 
-This repository implements a multi-task Named Entity Recognition (NER) system for Chinese text, built on a **BERT-BiLSTM-CRF** architecture with a **Label Attention** mechanism and a gating-based multi-task fusion strategy. The model jointly learns two labeling tasks (e.g., NER tags and POS/syntactic tags) and fuses their outputs through a learned gate to improve primary task performance.
+This repository implements a multi-task Chinese Cloze Question Generation system for Educational Assessments, built on a **BERT-BiLSTM-CRF** architecture with a **Label Attention** mechanism and a gating-based multi-task fusion strategy. The model jointly learns two labeling tasks (e.g., NER tags and POS/syntactic tags) and fuses their outputs through a learned gate to improve primary task performance.
 
 ## Architecture Overview
 
